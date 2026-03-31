@@ -40,7 +40,6 @@ if [ "$REMOTE" = "" ]
 then
     rage_quit "To run this in a docker container, you have to provide a remote server."
 fi
-ping -c 1 "$REMOTE" || rage_quit "Cannot reach the remote SMB server"
 
 if [ "$HOST" = "" ]
 then
