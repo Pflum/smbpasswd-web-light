@@ -44,16 +44,6 @@ fi
 if [ "$HOST" = "" ]
 then
     rage_quit "To run this in a docker container, you have to provide a remote server."
-else
-	if [ "X$DO_NOT_VERIFY_REVERSE_PROXY" != "XThe reverse proxy send X-Forwarded-For and X-Forwarded-Host headers" ]
-	then
-		tmpfile="$(mktemp)"
-		printf 'HTTP/1.1 200 OK\n\n\n' | nc -lvp 8080 >"$tmpfile" &
-		echo "Testing the reverse proxy"
-		curl -k https://"$HOST/$WEBPATH" || rage_quit "We cannot verify the reverse proxy: curl exited with code $?. Quitting"
-		grep -q 'X-Forwarded-For:' "$tmpfile" || rage_quit "It seems that the reverse proxy is not proper configured: can't find X-Forwarded-For in the request!"
-		grep -q 'X-Forwarded-Host:' "$tmpfile" || rage_quit "It seems that the reverse proxy is not proper configured: can't find X-Forwarded-Host in the request!"
-	fi
 fi
 
 
