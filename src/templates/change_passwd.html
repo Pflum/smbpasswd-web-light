@@ -11,7 +11,7 @@
 	<form id="form" class="needs-validation" action="{{ url_for('app.api_changepasswd') }}">
 		<div class="mb-3">
 			<label for="username" class="form-label">Username</label>
-			<input type="text" class="form-control" id="username" required autofocus maxlength="256" minlength="1" pattern="^[a-zA-Z0-9]+$" autocomplete="username" aria-labelledby="usernameHelpBlock">
+			<input type="text" class="form-control" id="username" required autofocus maxlength="256" minlength="1" pattern="^[a-zA-Z0-9\.]+$" autocomplete="username" aria-labelledby="usernameHelpBlock">
 			<div id="usernameHelpBlock" class="form-text">
 				Your username may be composed of letters and numbers.
 			</div>
