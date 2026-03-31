@@ -31,7 +31,7 @@ CONFIG = {}
 bp = Blueprint('app', __name__)
 
 
-SMB_USERNAME_VALIDATOR = re.compile('^[a-zA-Z0-9]{1,256}$')
+SMB_USERNAME_VALIDATOR = re.compile('^[a-zA-Z0-9\.]{1,256}$')
 
 
 @enum.unique
